@@ -1,0 +1,126 @@
+HTML:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+		body {
+			font-family: Arial;
+			text-align: center;
+		}
+		button {
+			width: 50px;
+			height: 50px;
+			font-size: 20px;
+			margin: 5px;
+			border-radius: 5px;
+			border: none;
+			background-color: #eee;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #ddd;
+		}
+		input {
+			width: 200px;
+			height: 50px;
+			font-size: 20px;
+			text-align: right;
+			padding-right: 10px;
+			border-radius: 5px;
+			border: none;
+			margin: 5px;
+			background-color: #f0f0f0;
+		}
+	</style>
+</head>
+<body>
+	<h1>Calculator</h1>
+	<input type="text" id="display" disabled>
+	<br>
+	<button onclick="addToDisplay('7')">7</button>
+	<button onclick="addToDisplay('8')">8</button>
+	<button onclick="addToDisplay('9')">9</button>
+	<button onclick="add()">+</button>
+	<br>
+	<button onclick="addToDisplay('4')">4</button>
+	<button onclick="addToDisplay('5')">5</button>
+	<button onclick="addToDisplay('6')">6</button>
+	<button onclick="subtract()">-</button>
+	<br>
+	<button onclick="addToDisplay('1')">1</button>
+	<button onclick="addToDisplay('2')">2</button>
+	<button onclick="addToDisplay('3')">3</button>
+	<button onclick="multiply()">*</button>
+	<br>
+	<button onclick="addToDisplay('0')">0</button>
+	<button onclick="clearDisplay()">C</button>
+	<button onclick="calculate()">=</button>
+	<button onclick="divide()">/</button>
+	<script src="calculator.js"></script>
+</body>
+</html>
+
+
+JavaScript:
+
+
+var num1 = 0;
+var num2 = 0;
+var operator = "";
+var display = document.getElementById("display");
+
+function addToDisplay(num) {
+    display.value += num;
+}
+
+function clearDisplay() {
+    display.value = "";
+}
+
+function add() {
+    num1 = display.value;
+    operator = "+";
+    clearDisplay();
+}
+
+function subtract() {
+    num1 = display.value;
+    operator = "-";
+    clearDisplay();
+}
+
+function multiply() {
+    num1 = display.value;
+    operator = "*";
+    clearDisplay();
+}
+
+function divide() {
+    num1 = display.value;
+    operator = "/";
+    clearDisplay();
+}
+
+function calculate() {
+    num2 = display.value;
+    var result = 0;
+    switch (operator) {
+        case "+":
+            result = parseFloat(num1) + parseFloat(num2);
+            break;
+        case "-":
+            result = parseFloat(num1) - parseFloat(num2);
+            break;
+        case "*":
+            result = parseFloat(num1) * parseFloat(num2);
+            break;
+        case "/":
+            result = parseFloat(num1) / parseFloat(num2);
+            break;
+    }
+    display.value = result;
+}
+
+
+This code defines functions for adding, subtracting, multiplying, and dividing two numbers, as well as functions for displaying and clearing the calculator's input/output display. The HTML provides a simple layout for the calculator, including buttons for entering digits and operators, as well as an input field for displaying the results.
